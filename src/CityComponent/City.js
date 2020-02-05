@@ -1,7 +1,7 @@
 import React from 'react';
 import './City.css';
 import { connect } from 'react-redux'
-// import { retrieveCity } from '../actions/dataActions'
+import { retrieveCity } from '../actions/cityActions'
 
 class City extends React.Component {
    
@@ -12,6 +12,7 @@ class City extends React.Component {
     
 
     componentDidMount() {
+        this.props.retrieveCity()
     }
 
     render() {
@@ -23,6 +24,7 @@ class City extends React.Component {
         return (
             <div className="main-container">
                 {this.props.city}
+                {/* {process.env.APP_KEY} */}
             </div>
         )
     }
@@ -34,11 +36,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         retrieveCities: () => dispatch(retrieveCities())
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        retrieveCity: () => dispatch(retrieveCity())
+    }
+}
 
 
-export default connect(mapStateToProps, null)(City);
+export default connect(mapStateToProps, mapDispatchToProps)(City);
