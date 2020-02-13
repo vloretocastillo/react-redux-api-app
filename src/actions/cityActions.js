@@ -9,7 +9,7 @@ module.exports = {
                 })
                 .then(res =>  res.json() )
                 .then(data =>{
-                    console.log(data)
+                    // console.log(data)
                     // dispatch({
                     //     type: 'SEARCH_CITY',
                     //     city: data
